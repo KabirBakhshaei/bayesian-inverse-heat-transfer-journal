@@ -37,7 +37,7 @@ This project uses a **pre-configured container** that includes:
 ### 1A. Clone this repository and move into the cloned repository
 ```bash
 git clone https://github.com/KabirBakhshaei/bayesian-inverse-heat-transfer-journal
-cd bayesian-inverse-heat-transfer-paper
+cd bayesian-inverse-heat-transfer-journal
 ```
 ### 1B. Save the absolute path of this folder into a shell variable (used for folder mounting)
 ```bash
