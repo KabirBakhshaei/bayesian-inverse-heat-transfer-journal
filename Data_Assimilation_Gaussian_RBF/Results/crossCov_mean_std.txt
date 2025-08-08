@@ -1,0 +1,2 @@
+crossCov_mean: 49.475598
+crossCov_std: 9.803836251100687

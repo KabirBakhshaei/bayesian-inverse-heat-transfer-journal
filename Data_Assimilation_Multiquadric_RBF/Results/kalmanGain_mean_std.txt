@@ -1,0 +1,2 @@
+kalmanGain_mean: 5.0479593
+kalmanGain_std: 0.2618996701878603

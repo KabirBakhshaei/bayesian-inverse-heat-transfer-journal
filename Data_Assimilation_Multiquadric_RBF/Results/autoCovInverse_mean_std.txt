@@ -1,0 +1,2 @@
+autoCovInverse_mean: 808.8826000000001
+autoCovInverse_std: 69.04362047010571
