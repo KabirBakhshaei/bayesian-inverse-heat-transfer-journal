@@ -255,6 +255,15 @@ Once data is generated, postprocessing should be done outside Docker/Singularity
   - **Face Centers:**
     - `Figure 4c XZCentersOfFaces.pdf`
 
+#### `CombinedFigures14.ipynb`
+
+- **Reads (from local folder):**
+  - `Figure14aSnapshotCountorsGaussian.png`, `Figure14bSnapshotCountorsMultiquadric`, `Figure14CSnapshotCountorsTrue.png`
+  - `Figure14dSnapshotCountorsGaussianRelative.png`, `Figure14eSnapshotCountorsMultiquadricRelative.png`
+
+- **Creates (in `../Results/`):**
+  - **Combined Images:**
+    - `Figure14_combined.png`
 ---
 
 ## requirements.txt
