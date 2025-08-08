@@ -64,6 +64,7 @@ module load singularity
 ```
 # singularity pull docker://ithacafv/openfoam2412-muq2-pytorch
 singularity build ithacafv.sif docker://ithacafv/ithacafv:latest
+singularity build ithacafv.sif docker://ithacafv/ithacafv:
 ```
 ### 4B. Run the container and mount the paper repo
 ```
