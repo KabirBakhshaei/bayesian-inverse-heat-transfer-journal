@@ -67,7 +67,8 @@ singularity build ithacafv.sif docker://ithacafv/ithacafv
 ```
 ### 4B. Run the container and mount the paper repo
 ```
-singularity shell --bind $path_files:/data/paper_repository openfoam2412-muq2-pytorch_latest.sif
+# singularity shell --bind $path_files:/data/paper_repository openfoam2412-muq2-pytorch_latest.sif
+singularity shell --bind $path_files:/data/paper_repository ithacafv.sif
 ```
 
 ## Inside the Container (Linux Environment)
