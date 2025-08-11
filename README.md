@@ -98,6 +98,7 @@ Then load the required modules and compile/run the simulation:
 ```         
 source /usr/lib/openfoam/openfoam2506/etc/bashrc    # Load OpenFOAM environment (version 2212)
 source /data/paper_repository/ITHACA-FV/etc/bashrc                                   # Then load ITHACA-FV environment
+# /u/k/kbakhsha/ITHACA-FV-KF/tutorials/UQ/Docker/bayesian-inverse-heat-transfer-paper/ITHACA-FV/etc/bashrc
 module load muq   # Load MUQ module, if it not already pre-installed and linked inside the Docker/Singularity image
 wclean
 wmake             # Compile the solver
