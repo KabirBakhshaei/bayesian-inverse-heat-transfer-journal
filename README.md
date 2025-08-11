@@ -127,10 +127,12 @@ To use the **Gaussian RBF** instead of the multiquadric version:
 cd /data/paper_repository/Data_Assimilation_Gaussian_RBF/Files/
 ```
 **Edit the file**
-```/data/paper_repository/ITHACA-FV/src/ITHACA_FOMPROBLEMS/sequentialIHTP/sequentialIHTP.C
+```
+/data/paper_repository/ITHACA-FV/src/ITHACA_FOMPROBLEMS/sequentialIHTP/sequentialIHTP.C
 ```
 inside the file, commant out the line marked ```heatFluxSpaceBasis[funcI][faceI] = Foam::sqrt(1 + (shapeParameter * radius) * (shapeParameter * radius));``` and uncommand the line marked with```heatFluxSpaceBasis[funcI][faceI] = Foam::exp(-1.0 * (shapeParameter * shapeParameter) * (radius * radius));```to switch the configuration to Gaussian RBF mode. 
 This change toggles the reconstruction kernel used by the solver from multiquadric to Gaussian. 
+
 **Recompile ITHACA-FV**
 ```
 cd /data/paper_repository/ITHACA-FV
