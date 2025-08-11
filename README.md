@@ -72,7 +72,7 @@ singularity shell --bind $path_files:/data/paper_repository ithacafv.sif
 ```
 
 ## Inside the Container (Linux Environment)
-Skip step 5, since ITHACA has already cloned and compiled inside the Docker/Singularity image
+No Skip, we need to compile, Skip step 5, since ITHACA has already cloned and compiled inside the Docker/Singularity image
 ### 5A. Clone ITHACA-FV inside the container
 ```
 cd /data/paper_respository
@@ -82,7 +82,7 @@ git clone --depth 1 https://github.com/ITHACA-FV/ITHACA-FV
 ```
 cd ITHACA-FV
 git submodule update --init
-source /usr/lib/openfoam/openfoam2412/etc/bashrc
+source /usr/lib/openfoam/openfoam2506/etc/bashrc
 # source etc/bashrc
 ./Allwmake -tauq
 ```
