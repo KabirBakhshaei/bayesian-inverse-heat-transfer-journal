@@ -82,6 +82,7 @@ git clone --depth 1 https://github.com/ITHACA-FV/ITHACA-FV
 ```
 cd ITHACA-FV
 source /usr/lib/openfoam/openfoam2506/etc/bashrc
+source etc/bashrc
 git submodule update --init
 ./Allwmake -tauq
 ```
