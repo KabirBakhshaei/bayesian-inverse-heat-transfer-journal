@@ -75,7 +75,7 @@ singularity shell --bind $path_files:/data/paper_repository ithacafv.sif
 No Skip, we need to compile, Skip step 5, since ITHACA has already cloned and compiled inside the Docker/Singularity image
 ### 5A. Clone ITHACA-FV inside the container
 ```
-cd /data/paper_respository   # i think the correct one is inside bayesian-inverse-heat-transfer-journal
+cd bayesian-inverse-heat-transfer-journal   # I think "cd /data/paper_respository" is not correct
 git clone --depth 1 https://github.com/ITHACA-FV/ITHACA-FV
 ```
 ### 5B.Compile ITHACA-FV with MUQ support
@@ -88,12 +88,12 @@ source /usr/lib/openfoam/openfoam2506/etc/bashrc
 ```
 ### 6. Navigate back to the mounted repo
 ```
-cd ../paper_respository
+cd ../ITHACA-FV
 ```
 
 ### 7. Navigate to the Simulation Directory and Run the Solver 
 ```
-cd ITHACA-FV-KF/tutorials/UQ/Docker/bayesian-inverse-heat-transfer-journal/Data_Assimilation_Multiquadric_RBF/Files/
+cd Data_Assimilation_Multiquadric_RBF/Files/
 ```
 Then load the required modules and compile/run the simulation:
 ```         
