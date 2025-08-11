@@ -43,17 +43,18 @@ cd bayesian-inverse-heat-transfer-journal
 ```bash
 path_files=$(pwd)
 ```
+To View the Value of path_files ```echo $path_files```
 
 ## If You're Using Docker
 ### 2A. Pull (download) the pre-built Docker image
-The following code was copied from this [link](https://hub.docker.com/r/ithacafv/openfoam2412-muq2-pytorch).
+The following code was copied from this [link](https://hub.docker.com/r/ithacafv/ithacafv).
 
 ```
 docker pull ithacafv/openfoam2412-muq2-pytorch
 ```
 ### 3A. Create and start a Docker container based on the downloaded image and share the repo folder with that container
 ```
-docker run -i -t -v $path_files:/data/paper_respository  ithacafv/openfoam2412-muq2-pytorch:latest bash
+docker run -i -t -v $path_files:/data/paper_respository  ithacafv/ithacafv bash
 ```
 ## If You're Using Singularity (e.g., SISSA Workstations)
 ### 2B. Load Singularity
@@ -62,7 +63,6 @@ module load singularity
 ```
 ### 3B. Pull the Docker image as a Singularity .sif file
 ```
-# singularity pull docker://ithacafv/openfoam2412-muq2-pytorch
 singularity build ithacafv.sif docker://ithacafv/ithacafv
 ```
 ### 4B. Run the container and mount the paper repo
@@ -72,7 +72,7 @@ singularity shell --bind $path_files:/data/paper_repository ithacafv.sif
 ```
 
 ## Inside the Container (Linux Environment)
-Clone and compiled ITHACA if ITHACA has not already cloned and compiled inside the Docker/Singularity image
+Clone and compile ITHACA if ITHACA has not already been cloned and compiled inside the Docker/Singularity image
 ### 5A. Clone ITHACA-FV inside the container
 ```
 cd bayesian-inverse-heat-transfer-journal 
@@ -82,9 +82,9 @@ git clone --depth 1 https://github.com/ITHACA-FV/ITHACA-FV
 ```
 cd ITHACA-FV
 source /usr/lib/openfoam/openfoam2506/etc/bashrc
-source etc/bashrc
-git submodule update --init
-./Allwmake -tauq
+source etc/bashrc                                  # Sets up environment variables for compilation
+git submodule update --init                        # Initializes any submodules (e.g., dependencies)
+./Allwmake -tauq                                   # Compiles everything including Tauq (for UQ)
 ```
 ### 6. Navigate back to the mounted repo
 ```
@@ -97,9 +97,8 @@ cd Data_Assimilation_Multiquadric_RBF/Files/
 ```
 Then load the required modules and compile/run the simulation:
 ```         
-source /usr/lib/openfoam/openfoam2506/etc/bashrc    # Load OpenFOAM environment (version 2212)
-source /data/paper_repository/ITHACA-FV/etc/bashrc                                   # Then load ITHACA-FV environment
-# /u/k/kbakhsha/ITHACA-FV-KF/tutorials/UQ/Docker/bayesian-inverse-heat-transfer-paper/ITHACA-FV/etc/bashrc
+source /usr/lib/openfoam/openfoam2506/etc/bashrc                                     # Load OpenFOAM environment (version 2506)
+source /data/paper_repository/ITHACA-FV/etc/bashrc                                   # Then load ITHACA-FV environment   # /u/k/kbakhsha/ITHACA-FV-KF/tutorials/UQ/Docker/bayesian-inverse-heat-transfer-paper/ITHACA-FV/etc/bashrc
 module load muq   # Load MUQ module, if it not already pre-installed and linked inside the Docker/Singularity image
 wclean
 wmake             # Compile the solver
