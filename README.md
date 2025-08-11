@@ -18,6 +18,15 @@ This repository provides all the necessary code and data to reproduce the result
 ├── requirements.txt
 └── README.md
 ```
+## Path Mapping: Host vs. Container
+
+| Location | Example Path | Notes |
+|----------|--------------|-------|
+| **Host (before mounting)** | `/u/k/kbakhsha/ITHACA-FV-KF/tutorials/UQ/Docker/bayesian-inverse-heat-transfer-journal` | Your cloned repo folder on your workstation |
+| **Inside Container (after mounting)** | `/data/paper_repository` | Mount point inside Docker/Singularity — always use this path in container commands |
+
+**Important:** The name of the folder **inside the container** will always be `/data/paper_repository`, regardless of the name it has on your host.  
+That’s why in container steps, we `cd /data/paper_repository` instead of using the original folder name.
 
 ---
 
@@ -39,11 +48,14 @@ This project uses a **pre-configured container** that includes:
 git clone https://github.com/KabirBakhshaei/bayesian-inverse-heat-transfer-journal
 cd bayesian-inverse-heat-transfer-journal
 ```
-### 1B. Save the absolute path of this folder into a shell variable (used for folder mounting)
+### 1B. Save the absolute path of this folder into a shell variable (on the host)
 ```bash
 path_files=$(pwd)
 ```
-To View the Value of path_files ```echo $path_files```
+To View the Value 
+```bash
+echo $path_files
+```
 
 ## If You're Using Docker
 ### 2A. Pull (download) the pre-built Docker image
@@ -52,12 +64,13 @@ The following code was copied from this [link](https://hub.docker.com/r/ithacafv
 ```
 docker pull ithacafv/ithacafv
 ```
-### 3A. Create and start a Docker container based on the downloaded image and share the repo folder with that container
+### 3A. Start a Docker container and mount your repo folder
 ```
 docker run -i -t -v $path_files:/data/paper_respository  ithacafv/ithacafv bash
 ```
+**Note**: Inside Docker, your repo will appear at /data/paper_repository (regardless of the name it has on your host).
 ## If You're Using Singularity (e.g., SISSA Workstations)
-### 2B. Load Singularity
+### 2B. Load Singularity (on the host)
 ```
 module load singularity
 ```
@@ -65,30 +78,32 @@ module load singularity
 ```
 singularity build ithacafv.sif docker://ithacafv/ithacafv
 ```
-### 4B. Run the container and mount the paper repo
+### 4B. Start the Singularity container and mount your repo
 ```
-# singularity shell --bind $path_files:/data/paper_repository ithacafv.sif
 singularity shell --bind $path_files:/data/paper_repository ithacafv.sif
 ```
+**Important**: Inside Singularity, your repo will appear as ```/data/paper_repository``` — not as ```bayesian-inverse-heat-transfer-journal```.
 
 ## Inside the Container (Linux Environment)
-Clone and compile ITHACA if ITHACA has not already been cloned and compiled inside the Docker/Singularity image
-### 5A. Clone ITHACA-FV inside the container
+The steps below are executed inside the container. Always start from:
 ```
-cd bayesian-inverse-heat-transfer-journal 
+cd /data/paper_repository
+```
+### 5A.  Clone ITHACA-FV inside the container (only if not pre-installed)
+```
 git clone --depth 1 https://github.com/ITHACA-FV/ITHACA-FV
 ```
 ### 5B.Compile ITHACA-FV with MUQ support
 ```
 cd ITHACA-FV
-source /usr/lib/openfoam/openfoam2506/etc/bashrc
-source etc/bashrc                                  # Sets up environment variables for compilation
-git submodule update --init                        # Initializes any submodules (e.g., dependencies)
+source /usr/lib/openfoam/openfoam2506/etc/bashrc   # Load OpenFOAM environment
+source etc/bashrc                                  # Load ITHACA-FV environment
+git submodule update --init                        # Fetch dependencies
 ./Allwmake -tauq                                   # Compiles everything including Tauq (for UQ)
 ```
 ### 6. Navigate back to the mounted repo
 ```
-cd ../ITHACA-FV
+cd /data/paper_repository
 ```
 
 ### 7. Navigate to the Simulation Directory and Run the Solver 
@@ -97,13 +112,13 @@ cd Data_Assimilation_Multiquadric_RBF/Files/
 ```
 Then load the required modules and compile/run the simulation:
 ```         
-source /usr/lib/openfoam/openfoam2506/etc/bashrc                                     # Load OpenFOAM environment (version 2506)
-source /data/paper_repository/ITHACA-FV/etc/bashrc                                   # Then load ITHACA-FV environment   # /u/k/kbakhsha/ITHACA-FV-KF/tutorials/UQ/Docker/bayesian-inverse-heat-transfer-paper/ITHACA-FV/etc/bashrc
-module load muq   # Load MUQ module, if it not already pre-installed and linked inside the Docker/Singularity image
-wclean
-wmake             # Compile the solver
-blockMesh
-06enKFwDF_3dIHTP  # Run the solver 
+source /usr/lib/openfoam/openfoam2506/etc/bashrc       # Load OpenFOAM environment
+source /data/paper_repository/ITHACA-FV/etc/bashrc     # Load ITHACA-FV environment
+module load muq                                        # Load MUQ module, if it not already pre-installed and linked inside the Docker/Singularity image
+wclean                                                 # Clean old builds
+wmake                                                  # Compile the solver
+blockMesh                                              # Mesh generation
+06enKFwDF_3dIHTP                                       # Run the solver 
 ```
 For the following directory that uses **Gaussian RBF**, you need to follow some additional steps:
 
