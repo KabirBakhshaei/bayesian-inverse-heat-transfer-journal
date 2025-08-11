@@ -81,8 +81,8 @@ git clone --depth 1 https://github.com/ITHACA-FV/ITHACA-FV
 ### 5B.Compile ITHACA-FV with MUQ support
 ```
 cd ITHACA-FV
-git submodule update --init
 source /usr/lib/openfoam/openfoam2506/etc/bashrc
+git submodule update --init
 ./Allwmake -tauq
 ```
 ### 6. Navigate back to the mounted repo
