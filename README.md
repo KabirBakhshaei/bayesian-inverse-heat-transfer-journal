@@ -108,34 +108,43 @@ cd /data/paper_repository
 
 ### 7. Navigate to the Simulation Directory and Run the Solver 
 ```
-cd Data_Assimilation_Multiquadric_RBF/Files/
+cd /data/paper_repository/Data_Assimilation_Multiquadric_RBF/Files/
 ```
 Then load the required modules and compile/run the simulation:
 ```         
 source /usr/lib/openfoam/openfoam2506/etc/bashrc       # Load OpenFOAM environment
 source /data/paper_repository/ITHACA-FV/etc/bashrc     # Load ITHACA-FV environment
-module load muq                                        # Load MUQ module, if it not already pre-installed and linked inside the Docker/Singularity image
+# module load muq                                      # Load MUQ module, if it not already pre-installed and linked inside the Docker/Singularity image
 wclean                                                 # Clean old builds
 wmake                                                  # Compile the solver
 blockMesh                                              # Mesh generation
 06enKFwDF_3dIHTP                                       # Run the solver 
 ```
-For the following directory that uses **Gaussian RBF**, you need to follow some additional steps:
-
+### Running the Gaussian RBF version:
+To use the **Gaussian RBF** instead of the multiquadric version:
+**Navigate to the Gaussian RBF directory:**
 ```
-cd Data_Assimilation_Gaussian_RBF/Files/
+cd /data/paper_repository/Data_Assimilation_Gaussian_RBF/Files/
 ```
-Open the file
-```ITHACA-FV-KF/src/ITHACA_FOMPROBLEMS/sequentialIHTP/sequentialIHTP.C```
+**Edit the file**
+```/data/paper_repository/ITHACA-FV/src/ITHACA_FOMPROBLEMS/sequentialIHTP/sequentialIHTP.C
+```
 inside the file, commant out the line marked ```heatFluxSpaceBasis[funcI][faceI] = Foam::sqrt(1 + (shapeParameter * radius) * (shapeParameter * radius));``` and uncommand the line marked with```heatFluxSpaceBasis[funcI][faceI] = Foam::exp(-1.0 * (shapeParameter * shapeParameter) * (radius * radius));```to switch the configuration to Gaussian RBF mode. 
-This change toggles the reconstruction kernel used by the solver from multiquadric to Gaussian. Recompile ITHACA-FV
+This change toggles the reconstruction kernel used by the solver from multiquadric to Gaussian. 
+**Recompile ITHACA-FV**
 ```
-cd ~/ITHACA-FV-KF
-of2212
-source ~/ITHACA-FV-KF/etc/bashrc
+cd /data/paper_repository/ITHACA-FV
+source /usr/lib/openfoam/openfoam2506/etc/bashrc
+source etc/bashrc
 ./Allwmake -m -j 4
 ```
-And run the simulation as done previously:
+**Run the solver as done in the multiquadric case:**
+```
+wclean
+wmake
+blockMesh
+./06enKFwDF_3dIHTP
+```
 
 ### 8. Generated Output Files and Folders After Simulation
 **Folders:**
