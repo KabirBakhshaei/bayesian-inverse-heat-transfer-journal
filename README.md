@@ -72,6 +72,7 @@ singularity shell --bind $path_files:/data/paper_repository ithacafv.sif
 ```
 
 ## Inside the Container (Linux Environment)
+Skip step 5, since ITHACA has already cloned and compiled inside the Docker/Singularity image
 ### 5A. Clone ITHACA-FV inside the container
 ```
 cd /data/paper_respository
@@ -92,13 +93,14 @@ cd ../paper_respository
 
 ### 7. Navigate to the Simulation Directory and Run the Solver 
 ```
-cd Data_Assimilation_Multiquadric_RBF/Files/
+cd ITHACA-FV-KF/tutorials/UQ/Docker/bayesian-inverse-heat-transfer-journal/Data_Assimilation_Multiquadric_RBF/Files/
 ```
 Then load the required modules and compile/run the simulation:
-```
-source /usr/lib/openfoam/openfoam2412/etc/bashrc            # Load OpenFOAM environment (version 2212)
+```         
+source /usr/lib/openfoam/openfoam2506/etc/bashrc    # Load OpenFOAM environment (version 2212)
+source etc/bashrc                                   # Then load ITHACA-FV environment
+# source /data/paper_repository/ITHACA-FV/etc/bashrc 
 # module load muq   # Load MUQ module, already pre-installed and linked inside the Docker/Singularity image
-source /data/paper_repository/ITHACA-FV/etc/bashrc # Then load ITHACA-FV environment
 wclean
 wmake             # Compile the solver
 blockMesh
