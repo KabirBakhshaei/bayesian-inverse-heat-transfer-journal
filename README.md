@@ -75,7 +75,7 @@ singularity shell --bind $path_files:/data/paper_repository ithacafv.sif
 No Skip, we need to compile, Skip step 5, since ITHACA has already cloned and compiled inside the Docker/Singularity image
 ### 5A. Clone ITHACA-FV inside the container
 ```
-cd /data/paper_respository
+cd /data/paper_respository   # i think the correct one is inside bayesian-inverse-heat-transfer-journal
 git clone --depth 1 https://github.com/ITHACA-FV/ITHACA-FV
 ```
 ### 5B.Compile ITHACA-FV with MUQ support
