@@ -66,7 +66,10 @@ docker pull ithacafv/ithacafv
 ```
 ### 3A. Start a Docker container and mount your repo folder
 ```
-docker run -i -t -v $path_files:/data/paper_respository  ithacafv/ithacafv bash
+docker run -it --name ithacafv \
+  -v "$path_files":/data/paper_repository \
+  ithacafv/ithacafv bash
+
 ```
 **Note**: Inside Docker, your repo will appear at /data/paper_repository (regardless of the name it has on your host).
 ## If You're Using Singularity (e.g., SISSA Workstations)
