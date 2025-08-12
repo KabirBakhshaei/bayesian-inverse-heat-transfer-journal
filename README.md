@@ -49,12 +49,15 @@ git clone https://github.com/KabirBakhshaei/bayesian-inverse-heat-transfer-journ
 cd bayesian-inverse-heat-transfer-journal
 ```
 ### 1B. Save the absolute path of this folder into a shell variable (on the host)
+**If you are on Linux, WSL, or Git Bash:**
 ```bash
 path_files=$(pwd)
+echo "$path_files"
 ```
-To View the Value 
+If you are on Windows PowerShell:
 ```bash
-echo $path_files
+$path_files = (Get-Location).Path
+Write-Output $path_files
 ```
 
 ## If You're Using Docker
@@ -123,7 +126,7 @@ Depending on whether your container shell is ```bash``` or ```/bin/sh``, load th
 If you are in bash:
 ```
 source /usr/lib/openfoam/openfoam2506/etc/bashrc       # Load OpenFOAM environment using linux
-source /data/paper_repository/ITHACA-FV/etc/bashrc     # Load ITHACA-FV environment
+source /usr/dir/ITHACA-FV/etc/bashrc                   # Load ITHACA-FV environment
 ```
 If you are in /bin/sh:
 ```         
