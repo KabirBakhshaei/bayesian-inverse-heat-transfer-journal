@@ -82,6 +82,7 @@ docker run -it --name ithacafv -v "$path_files":/data/paper_repository \ithacafv
 ```
 docker run -it --name ithacafv -v ${path_files}:/data/paper_repository --entrypoint /bin/sh ithacafv/ithacafv
 ```
+<!--
 **Note**: Inside Docker, your repo will appear at ```/data/paper_repository``` regardless of the name it has on your host.
 ## If You're Using Singularity (e.g., SISSA Workstations)
 ### 2B. Load Singularity (on the host)
@@ -97,7 +98,7 @@ singularity build ithacafv.sif docker://ithacafv/ithacafv
 singularity shell --bind $path_files:/data/paper_repository ithacafv.sif
 ```
 **Important**: Inside Singularity, your repo will appear as ```/data/paper_repository``` — not as ```bayesian-inverse-heat-transfer-journal```.
-
+-->
 ## Inside the Container (Linux Environment)
 Once inside the container (whether using ```bash``` or ```/bin/sh```):
 
