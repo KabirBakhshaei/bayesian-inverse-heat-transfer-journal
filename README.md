@@ -62,6 +62,10 @@ Write-Output $path_files
 
 ## If You're Using Docker
 ### 2A. Pull (download) the pre-built Docker image
+(Optional) Remove any old container with the same name
+```
+docker rm -f ithacafv 2>$null
+```
 The following code was copied from this [link](https://hub.docker.com/r/ithacafv/ithacafv).
 
 ```
