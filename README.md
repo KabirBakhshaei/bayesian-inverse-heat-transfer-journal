@@ -99,7 +99,7 @@ singularity shell --bind $path_files:/data/paper_repository ithacafv.sif
 **Important**: Inside Singularity, your repo will appear as ```/data/paper_repository``` — not as ```bayesian-inverse-heat-transfer-journal```.
 
 ## Inside the Container (Linux Environment)
-The steps below are executed inside the container. Always start from:
+Once inside the container (whether using ```bash``` or ```/bin/sh```):
 
 **Note:** Depending on your Singularity configuration, you may already start inside `/data/paper_repository` after running 
 `singularity shell --bind ...`. In that case, the `cd /data/paper_repository` command is optional.
