@@ -65,13 +65,16 @@ The following code was copied from this [link](https://hub.docker.com/r/ithacafv
 docker pull ithacafv/ithacafv
 ```
 ### 3A. Start a Docker container and mount your repo folder
+**Linux / WSL / Git Bash version**
 ```
-docker run -it --name ithacafv \
-  -v "$path_files":/data/paper_repository \
-  ithacafv/ithacafv bash
-
+docker run -it --name ithacafv -v "$path_files":/data/paper_repository \ithacafv/ithacafv bash
 ```
-**Note**: Inside Docker, your repo will appear at /data/paper_repository (regardless of the name it has on your host).
+**Windows PowerShell version**
+**Note**: Some Windows setups may not support ```bash``` inside the image. If ```bash``` fails, use ```/bin/sh``` as shown below.
+```
+docker run -it --name ithacafv -v ${path_files}:/data/paper_repository --entrypoint /bin/sh ithacafv/ithacafv
+```
+**Note**: Inside Docker, your repo will appear at ```/data/paper_repository``` regardless of the name it has on your host.
 ## If You're Using Singularity (e.g., SISSA Workstations)
 ### 2B. Load Singularity (on the host)
 ```
@@ -116,10 +119,19 @@ cd /data/paper_repository
 ```
 cd /data/paper_repository/Data_Assimilation_Multiquadric_RBF/Files/
 ```
-Then load the required modules and compile/run the simulation:
-```         
-source /usr/lib/openfoam/openfoam2506/etc/bashrc       # Load OpenFOAM environment
+Depending on whether your container shell is ```bash``` or ```/bin/sh``, load the required environments:
+If you are in bash:
+```
+source /usr/lib/openfoam/openfoam2506/etc/bashrc       # Load OpenFOAM environment using linux
 source /data/paper_repository/ITHACA-FV/etc/bashrc     # Load ITHACA-FV environment
+```
+If you are in /bin/sh:
+```         
+. /usr/lib/openfoam/openfoam2506/etc/bashrc            # Load OpenFOAM environment
+. /usr/dir/ITHACA-FV/etc/bashrc                        # Load ITHACA-FV environment
+```
+Then compile and run the simulation:
+```
 # module load muq                                      # Load MUQ module, if it not already pre-installed and linked inside the Docker/Singularity image
 wclean                                                 # Clean old builds
 wmake                                                  # Compile the solver
