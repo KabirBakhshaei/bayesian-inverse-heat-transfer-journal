@@ -107,17 +107,26 @@ Once inside the container (whether using ```bash``` or ```/bin/sh```):
 ```
 cd /data/paper_repository
 ```
-### 5A.  Clone ITHACA-FV inside the container (only if not pre-installed)
+### 5A.  Clone ITHACA-FV inside the container (only if not pre-installed) and navigate to ITHACA-FV 
 ```
 git clone --depth 1 https://github.com/ITHACA-FV/ITHACA-FV
+cd ITHACA-FV
 ```
 ### 5B.Compile ITHACA-FV with MUQ support
+If you are in bash:
 ```
-cd ITHACA-FV
-source /usr/lib/openfoam/openfoam2506/etc/bashrc   # Load OpenFOAM environment
-source etc/bashrc                                  # Load ITHACA-FV environment
-git submodule update --init                        # Fetch dependencies
-./Allwmake -tauq                                   # Compiles everything including Tauq (for UQ)
+source /usr/lib/openfoam/openfoam2506/etc/bashrc       # Load OpenFOAM environment 
+source /data/paper_repository/ITHACA-FV/etc/bashrc     # Load ITHACA-FV environment
+```
+If you are in /bin/sh:
+```         
+. /usr/lib/openfoam/openfoam2506/etc/bashrc       # Load OpenFOAM environment 
+. /data/paper_repository/ITHACA-FV/etc/bashrc     # Load ITHACA-FV environment
+```
+then
+```
+git submodule update --init                            # Fetch dependencies
+./Allwmake -tauq -j 4                                  # Compiles everything including Tauq (for UQ)
 ```
 ### 6. Navigate back to the mounted repo
 ```
