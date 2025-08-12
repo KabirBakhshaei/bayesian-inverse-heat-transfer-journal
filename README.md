@@ -86,6 +86,8 @@ singularity shell --bind $path_files:/data/paper_repository ithacafv.sif
 
 ## Inside the Container (Linux Environment)
 The steps below are executed inside the container. Always start from:
+**Note:** Depending on your Singularity configuration, you may already start inside `/data/paper_repository` after running 
+`singularity shell --bind ...`. In that case, the `cd /data/paper_repository` command is optional.
 ```
 cd /data/paper_repository
 ```
