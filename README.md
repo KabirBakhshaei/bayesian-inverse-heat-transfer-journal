@@ -112,6 +112,7 @@ Once inside the container (whether using ```bash``` or ```/bin/sh```):
 cd /data/paper_repository
 ```
 ### 4.  Clone ITHACA-FV inside the container (only if not pre-installed) 
+Using 'find / -type d -name "ITHACA-FV" 2>/dev/null' to see where ITHACA is installed `/usr/dir/ITHACA-FV`
 ```
 git clone --depth 1 https://github.com/ITHACA-FV/ITHACA-FV
 ```
