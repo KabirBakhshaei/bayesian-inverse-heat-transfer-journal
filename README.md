@@ -111,10 +111,9 @@ Once inside the container (whether using ```bash``` or ```/bin/sh```):
 ```
 cd /data/paper_repository
 ```
-### 4.  Clone ITHACA-FV inside the container (only if not pre-installed) and navigate to ITHACA-FV 
+### 4.  Clone ITHACA-FV inside the container (only if not pre-installed) 
 ```
 git clone --depth 1 https://github.com/ITHACA-FV/ITHACA-FV
-cd ITHACA-FV
 ```
 ### 5A. Modified_ITHACA_Files
 This folder contains modified .C and .H files that replace the originals in ITHACA-FV/... to reproduce the results in the paper.
@@ -141,9 +140,10 @@ This folder contains modified .C and .H files that replace the originals in ITHA
     cp /data/paper_repository/Modified_ITHACA_Files/createThermocouples.H /data/paper_repository/ITHACA-FV/src/ITHACA_FOMPROBLEMS/sequentialIHTP/createThermocouples.H
     ```
     
-### 5B.Compile ITHACA-FV with MUQ support
+### 5B.Navigate and Compile ITHACA-FV with MUQ support
 If you are in bash:
 ```
+cd ITHACA-FV
 source /usr/lib/openfoam/openfoam2506/etc/bashrc       # Load OpenFOAM environment 
 source /data/paper_repository/ITHACA-FV/etc/bashrc     # Load ITHACA-FV environment
 ```
