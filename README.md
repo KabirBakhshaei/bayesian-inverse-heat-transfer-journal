@@ -12,6 +12,9 @@ This repository provides all the necessary code and data to reproduce the result
 ├── Data_Assimilation_Multiquadric_RBF/
 │   ├── Files/
 │   └── Results/
+├── Modified_ITHACA_Files
+│   ├── C Files
+│   └── H Files
 ├── SupplementaryImages/
 │   ├── Files/
 │   └── Results/
@@ -49,7 +52,7 @@ git clone https://github.com/KabirBakhshaei/bayesian-inverse-heat-transfer-journ
 cd bayesian-inverse-heat-transfer-journal
 ```
 ### 1B. Save the absolute path of this folder into a shell variable (on the host)
-**If you are on Linux, WSL, or Git Bash:**
+If you are on Linux, WSL, or Git Bash:
 ```bash
 path_files=$(pwd)
 echo "$path_files"
@@ -61,7 +64,7 @@ Write-Output $path_files
 ```
 
 ## If You're Using Docker
-### 2A. Pull (download) the pre-built Docker image
+### 2. Pull (download) the pre-built Docker image
 (Optional) Remove any old container and image with the same name
 ```
 docker rm -f ithacafv            # Remove the container
@@ -72,12 +75,13 @@ The following code was copied from this [link](https://hub.docker.com/r/ithacafv
 ```
 docker pull ithacafv/ithacafv
 ```
-### 3A. Start a Docker container and mount your repo folder
-**Linux / WSL / Git Bash version**
+### 3. Start a Docker container and mount your repo folder
+Linux / WSL / Git Bash version
 ```
 docker run -it --name ithacafv -v "$path_files":/data/paper_repository \ithacafv/ithacafv bash
 ```
-**Windows PowerShell version**
+Windows PowerShell version
+
 **Note**: Some Windows setups may not support ```bash``` inside the image. If ```bash``` fails, use ```/bin/sh``` as shown below.
 ```
 docker run -it --name ithacafv -v ${path_files}:/data/paper_repository --entrypoint /bin/sh ithacafv/ithacafv
@@ -107,11 +111,43 @@ Once inside the container (whether using ```bash``` or ```/bin/sh```):
 ```
 cd /data/paper_repository
 ```
-### 5A.  Clone ITHACA-FV inside the container (only if not pre-installed) and navigate to ITHACA-FV 
+### 4.  Clone ITHACA-FV inside the container (only if not pre-installed) and navigate to ITHACA-FV 
 ```
 git clone --depth 1 https://github.com/ITHACA-FV/ITHACA-FV
 cd ITHACA-FV
 ```
+### 5A. Modified_ITHACA_Files
+This folder contains modified .C and .H files that replace the originals in ITHACA-FV/... to reproduce the results in the paper.
+#### Instructions for Replacing Files:
+
+1. **Replace files in the ITHACA-FV repository**:
+
+    a. Inside `ITHACA-FV/src/`, replace `ensembleClass.C`, `ensembleClass.H`, `muq2ithaca.C`, and `muq2ithaca.H` with the corresponding files from the `Modified_ITHACA_Files` folder:
+
+    ```bash
+    cp /path/to/your/repo/Changed\ codes/ensembleClass.C ITHACA-FV/src/
+    cp /path/to/your/repo/Changed\ codes/ensembleClass.H ITHACA-FV/src/
+    cp /path/to/your/repo/Changed\ codes/muq2ithaca.C ITHACA-FV/src/
+    cp /path/to/your/repo/Changed\ codes/muq2ithaca.H ITHACA-FV/src/
+    ```
+
+    b. Inside `ITHACA-FV/src/Fang2017filter_wDF`, replace `Fang2017filter_wDF.C` and `Fang2017filter_wDF.H` with the corresponding files from the `Modified_ITHACA_Files` folder:
+
+    ```bash
+    cp /path/to/your/repo/Changed\ codes/Fang2017filter_wDF.C ITHACA-FV/src/Fang2017filter_wDF/
+    cp /path/to/your/repo/Changed\ codes/Fang2017filter_wDF.H ITHACA-FV/src/Fang2017filter_wDF/
+    ```
+    c. Inside `ITHACA-FV-KF/src/ITHACA_FOMPROBLEMS/sequentialIHTP`, replace `sequentialIHTP.C`, `sequentialIHTP.H`, and `createThermocouples.H` with the corresponding files from the `Modified_ITHACA_Files` folder:
+
+    ```bash
+    cp /path/to/your/repo/Changed\ codes/sequentialIHTP.C ITHACA-FV-KF/src/ITHACA_FOMPROBLEMS/sequentialIHTP/
+    cp /path/to/your/repo/Changed\ codes/sequentialIHTP.H ITHACA-FV-KF/src/ITHACA_FOMPROBLEMS/sequentialIHTP/
+    cp /path/to/your/repo/Changed\ codes/createThermocouples.H ITHACA-FV-KF/src/ITHACA_FOMPROBLEMS/sequentialIHTP/
+    ```
+
+    **Explanation**:
+    - Replace `/path/to/your/repo/` with the actual path where you have cloned your repository containing the `Modified_ITHACA_Files` folder.
+    - The `cp` command copies the modified files from the `Changed codes` folder to the appropriate directories in the ITHACA-FV and ITHACA-FV-KF repositories, replacing the original files.
 ### 5B.Compile ITHACA-FV with MUQ support
 If you are in bash:
 ```
