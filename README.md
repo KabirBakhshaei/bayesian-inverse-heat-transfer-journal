@@ -122,27 +122,27 @@ This folder contains modified .C and .H files that replace the originals in ITHA
 
 1. **Replace files in the ITHACA-FV repository**:
 
-    a. Inside `ITHACA-FV/src/`, replace `ensembleClass.C`, `ensembleClass.H`, `muq2ithaca.C`, and `muq2ithaca.H` with the corresponding files from the `Modified_ITHACA_Files` folder:
+    a. Inside `ITHACA-FV/src/ITHACA_MUQ`, replace `ensembleClass.C`, `ensembleClass.H`, `muq2ithaca.C`, and `muq2ithaca.H` with the corresponding files from the `Modified_ITHACA_Files` folder:
 
     ```bash
-    cp /path/to/your/repo/Changed\ codes/ensembleClass.C ITHACA-FV/src/
-    cp /path/to/your/repo/Changed\ codes/ensembleClass.H ITHACA-FV/src/
-    cp /path/to/your/repo/Changed\ codes/muq2ithaca.C ITHACA-FV/src/
-    cp /path/to/your/repo/Changed\ codes/muq2ithaca.H ITHACA-FV/src/
+    cp /path/to/your/repo/Changed\ codes/ensembleClass.C ITHACA-FV/src/ITHACA_MUQ/
+    cp /path/to/your/repo/Changed\ codes/ensembleClass.H ITHACA-FV/src/ITHACA_MUQ/
+    cp /path/to/your/repo/Changed\ codes/muq2ithaca.C ITHACA-FV/src/ITHACA_MUQ/
+    cp /path/to/your/repo/Changed\ codes/muq2ithaca.H ITHACA-FV/src/ITHACA_MUQ/
     ```
 
-    b. Inside `ITHACA-FV/src/Fang2017filter_wDF`, replace `Fang2017filter_wDF.C` and `Fang2017filter_wDF.H` with the corresponding files from the `Modified_ITHACA_Files` folder:
+    b. Inside `ITHACA-FV/src/ITHACA_MUQ/Fang2017filter_wDF`, replace `Fang2017filter_wDF.C` and `Fang2017filter_wDF.H` with the corresponding files from the `Modified_ITHACA_Files` folder:
 
     ```bash
-    cp /path/to/your/repo/Changed\ codes/Fang2017filter_wDF.C ITHACA-FV/src/Fang2017filter_wDF/
-    cp /path/to/your/repo/Changed\ codes/Fang2017filter_wDF.H ITHACA-FV/src/Fang2017filter_wDF/
+    cp /path/to/your/repo/Changed\ codes/Fang2017filter_wDF.C ITHACA-FV/src/ITHACA_MUQ/Fang2017filter_wDF/
+    cp /path/to/your/repo/Changed\ codes/Fang2017filter_wDF.H ITHACA-FV/src/ITHACA_MUQ/Fang2017filter_wDF/
     ```
-    c. Inside `ITHACA-FV-KF/src/ITHACA_FOMPROBLEMS/sequentialIHTP`, replace `sequentialIHTP.C`, `sequentialIHTP.H`, and `createThermocouples.H` with the corresponding files from the `Modified_ITHACA_Files` folder:
+    c. Inside `ITHACA-FV/src/ITHACA_FOMPROBLEMS/sequentialIHTP`, replace `sequentialIHTP.C`, `sequentialIHTP.H`, and `createThermocouples.H` with the corresponding files from the `Modified_ITHACA_Files` folder:
 
     ```bash
-    cp /path/to/your/repo/Changed\ codes/sequentialIHTP.C ITHACA-FV-KF/src/ITHACA_FOMPROBLEMS/sequentialIHTP/
-    cp /path/to/your/repo/Changed\ codes/sequentialIHTP.H ITHACA-FV-KF/src/ITHACA_FOMPROBLEMS/sequentialIHTP/
-    cp /path/to/your/repo/Changed\ codes/createThermocouples.H ITHACA-FV-KF/src/ITHACA_FOMPROBLEMS/sequentialIHTP/
+    cp /path/to/your/repo/Changed\ codes/sequentialIHTP.C ITHACA-FV/src/ITHACA_FOMPROBLEMS/sequentialIHTP/
+    cp /path/to/your/repo/Changed\ codes/sequentialIHTP.H ITHACA-FV/src/ITHACA_FOMPROBLEMS/sequentialIHTP/
+    cp /path/to/your/repo/Changed\ codes/createThermocouples.H ITHACA-FV/src/ITHACA_FOMPROBLEMS/sequentialIHTP/
     ```
 
     **Explanation**:
