@@ -145,7 +145,7 @@ source /data/paper_repository/ITHACA-FV/etc/bashrc     # Load ITHACA-FV environm
 ```
 If you are in /bin/sh:
 ```         
-. /usr/lib/openfoam/openfoam2506/etc/bashrc       # Load OpenFOAM environment 
+. /usr/lib/openfoam/openfoam2506/etc/bashrc       # Load OpenFOAM environment   
 . /data/paper_repository/ITHACA-FV/etc/bashrc     # Load ITHACA-FV environment
 ```
 then
@@ -166,12 +166,13 @@ Depending on whether your container shell is ```bash``` or ```/bin/sh``, load th
 If you are in bash:
 ```
 source /usr/lib/openfoam/openfoam2506/etc/bashrc       # Load OpenFOAM environment using linux
-source /usr/dir/ITHACA-FV/etc/bashrc                   # Load ITHACA-FV environment
+source /data/paper_repository/ITHACA-FV/etc/bashrc     # Load ITHACA-FV environment
+
 ```
 If you are in /bin/sh:
 ```         
 . /usr/lib/openfoam/openfoam2506/etc/bashrc            # Load OpenFOAM environment
-. /usr/dir/ITHACA-FV/etc/bashrc                        # Load ITHACA-FV environment
+. /data/paper_repository/ITHACA-FV/etc/bashrc          # Load ITHACA-FV environment
 ```
 Then compile and run the simulation:
 ```
