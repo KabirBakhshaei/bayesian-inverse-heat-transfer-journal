@@ -117,7 +117,7 @@ But it is better to clone and compile the own version (for development or persis
 
 It is fine to have two copies of ITHACA-FV: the precompiled(read only) which is `/usr/lib/ITHACA-FV` is part of the container’s filesystem, changes here will be lost when the container is removed or the editable clone which is `/data/ITHACA-FV` is bind-mounted to the host machine, changes here will persist between container runs.
 ```
-rm -rf /data/paper_repository/ITHACA-FVpwd
+rm -rf /data/paper_repository/ITHACA-FV
 git clone --depth 1 https://github.com/ITHACA-FV/ITHACA-FV
 ```
 ### 5A. Modified_ITHACA_Files
