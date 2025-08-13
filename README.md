@@ -117,10 +117,6 @@ git clone --depth 1 https://github.com/ITHACA-FV/ITHACA-FV
 ```
 ### 5A. Modified_ITHACA_Files
 This folder contains modified .C and .H files that replace the originals in ITHACA-FV/... to reproduce the results in the paper.
-#### Instructions for Replacing Files:
-
-1. **Replace files in the ITHACA-FV repository**:
-
     ```bash
     
     # ITHACA_MUQ
