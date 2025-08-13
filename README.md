@@ -122,32 +122,25 @@ This folder contains modified .C and .H files that replace the originals in ITHA
 
 1. **Replace files in the ITHACA-FV repository**:
 
-    a. Inside `ITHACA-FV/src/ITHACA_MUQ`, replace `ensembleClass.C`, `ensembleClass.H`, `muq2ithaca.C`, and `muq2ithaca.H` with the corresponding files from the `Modified_ITHACA_Files` folder:
-
     ```bash
-    cp /path/to/your/repo/Changed\ codes/ensembleClass.C ITHACA-FV/src/ITHACA_MUQ/
-    cp /path/to/your/repo/Changed\ codes/ensembleClass.H ITHACA-FV/src/ITHACA_MUQ/
-    cp /path/to/your/repo/Changed\ codes/muq2ithaca.C ITHACA-FV/src/ITHACA_MUQ/
-    cp /path/to/your/repo/Changed\ codes/muq2ithaca.H ITHACA-FV/src/ITHACA_MUQ/
+    
+    # ITHACA_MUQ
+    cp /data/paper_repository/Modified_ITHACA_Files/ensembleClass.C /data/paper_repository/ITHACA-FV/src/ITHACA_MUQ/ensembleClass.C
+    cp /data/paper_repository/Modified_ITHACA_Files/ensembleClass.H /data/paper_repository/ITHACA-FV/src/ITHACA_MUQ/ensembleClass.H
+    cp /data/paper_repository/Modified_ITHACA_Files/muq2ithaca.C /data/paper_repository/ITHACA-FV/src/ITHACA_MUQ/muq2ithaca.C
+    cp /data/paper_repository/Modified_ITHACA_Files/muq2ithaca.H /data/paper_repository/ITHACA-FV/src/ITHACA_MUQ/muq2ithaca.H
+
+    # ITHACA_MUQ/Fang2017filter_wDF
+    cp /data/paper_repository/Modified_ITHACA_Files/Fang2017filter_wDF.C /data/paper_repository/ITHACA-FV/src/ITHACA_MUQ/Fang2017filter_wDF/Fang2017filter_wDF.C
+    cp /data/paper_repository/Modified_ITHACA_Files/Fang2017filter_wDF.H /data/paper_repository/ITHACA-FV/src/ITHACA_MUQ/Fang2017filter_wDF/Fang2017filter_wDF.H
+
+
+    # ITHACA_FOMPROBLEMS/sequentialIHTP
+    cp /data/paper_repository/Modified_ITHACA_Files/sequentialIHTP.C /data/paper_repository/ITHACA-FV/src/ITHACA_FOMPROBLEMS/sequentialIHTP/sequentialIHTP.C
+    cp /data/paper_repository/Modified_ITHACA_Files/sequentialIHTP.H /data/paper_repository/ITHACA-FV/src/ITHACA_FOMPROBLEMS/sequentialIHTP/sequentialIHTP.H
+    cp /data/paper_repository/Modified_ITHACA_Files/createThermocouples.H /data/paper_repository/ITHACA-FV/src/ITHACA_FOMPROBLEMS/sequentialIHTP/createThermocouples.H
     ```
-
-    b. Inside `ITHACA-FV/src/ITHACA_MUQ/Fang2017filter_wDF`, replace `Fang2017filter_wDF.C` and `Fang2017filter_wDF.H` with the corresponding files from the `Modified_ITHACA_Files` folder:
-
-    ```bash
-    cp /path/to/your/repo/Changed\ codes/Fang2017filter_wDF.C ITHACA-FV/src/ITHACA_MUQ/Fang2017filter_wDF/
-    cp /path/to/your/repo/Changed\ codes/Fang2017filter_wDF.H ITHACA-FV/src/ITHACA_MUQ/Fang2017filter_wDF/
-    ```
-    c. Inside `ITHACA-FV/src/ITHACA_FOMPROBLEMS/sequentialIHTP`, replace `sequentialIHTP.C`, `sequentialIHTP.H`, and `createThermocouples.H` with the corresponding files from the `Modified_ITHACA_Files` folder:
-
-    ```bash
-    cp /path/to/your/repo/Changed\ codes/sequentialIHTP.C ITHACA-FV/src/ITHACA_FOMPROBLEMS/sequentialIHTP/
-    cp /path/to/your/repo/Changed\ codes/sequentialIHTP.H ITHACA-FV/src/ITHACA_FOMPROBLEMS/sequentialIHTP/
-    cp /path/to/your/repo/Changed\ codes/createThermocouples.H ITHACA-FV/src/ITHACA_FOMPROBLEMS/sequentialIHTP/
-    ```
-
-    **Explanation**:
-    - Replace `/path/to/your/repo/` with the actual path where you have cloned your repository containing the `Modified_ITHACA_Files` folder.
-    - The `cp` command copies the modified files from the `Changed codes` folder to the appropriate directories in the ITHACA-FV and ITHACA-FV-KF repositories, replacing the original files.
+    
 ### 5B.Compile ITHACA-FV with MUQ support
 If you are in bash:
 ```
