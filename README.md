@@ -115,10 +115,9 @@ cd /data/paper_repository
 The container already includes a precompiled ITHACA-FV in `/usr/dir/ITHACA-FV` it can be checked via `find / -type d -name "ITHACA-FV" 2>/dev/null`.
 But it is better to clone and compile the own version (for development or persistence) to the mounted `/data/paper_repository` directory. 
 
-`/usr/lib/ITHACA-FV` is part of the container’s filesystem — changes here will be lost when the container is removed.
-
-`/data/ITHACA-FV` is bind-mounted to the host machine — changes here will persist between container runs.
+It is fine to have two copies of ITHACA-FV: the precompiled(read only) which is `/usr/lib/ITHACA-FV` is part of the container’s filesystem, changes here will be lost when the container is removed or the editable clone which is `/data/ITHACA-FV` is bind-mounted to the host machine, changes here will persist between container runs.
 ```
+rm -rf /data/paper_repository/ITHACA-FVpwd
 git clone --depth 1 https://github.com/ITHACA-FV/ITHACA-FV
 ```
 ### 5A. Modified_ITHACA_Files
