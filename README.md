@@ -116,9 +116,9 @@ cd /data/paper_repository
 git clone --depth 1 https://github.com/ITHACA-FV/ITHACA-FV
 ```
 ### 5A. Modified_ITHACA_Files
-This folder contains modified .C and .H files that replace the originals in ITHACA-FV/... to reproduce the results in the paper.
+This folder contains modified '.C' and '.H' source files that must replace the corresponding originals in the 'ITHACA-FV' source tree in order to reproduce the results presented in the paper.
+
     ```bash
-    
     # ITHACA_MUQ
     cp /data/paper_repository/Modified_ITHACA_Files/ensembleClass.C /data/paper_repository/ITHACA-FV/src/ITHACA_MUQ/ensembleClass.C
     cp /data/paper_repository/Modified_ITHACA_Files/ensembleClass.H /data/paper_repository/ITHACA-FV/src/ITHACA_MUQ/ensembleClass.H
