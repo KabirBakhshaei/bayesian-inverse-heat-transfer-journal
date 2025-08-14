@@ -69,7 +69,7 @@ echo "$path_files"
 docker rm -f ithacafv            # Remove the container
 docker rmi ithacafv/ithacafv     # Remove the image
 ```
-The following code was copied from this [link](https://hub.docker.com/r/ithacafv/ithacafv).
+The following code was copied from this [Official Docker Hub page](https://hub.docker.com/r/ithacafv/ithacafv).
 
 ```
 docker pull ithacafv/ithacafv
@@ -193,7 +193,7 @@ If you are in bash:
 ```
 source /usr/lib/openfoam/openfoam2506/etc/bashrc       # Load OpenFOAM environment using linux
 source /data/paper_repository/ITHACA-FV/etc/bashrc     # Load ITHACA-FV environment
-# We reproduce the results on Windows PowerShell, you may need to adapt the above to Linux / WSL / Git Bash version
+# We reproduce the results on Windows PowerShell; you may need to adapt the above to Linux / WSL / Git Bash version
 ```
 
 Then compile and run the simulation:
@@ -217,20 +217,7 @@ cd /data/paper_repository/Data_Assimilation_Gaussian_RBF/Files/
 inside the file, commant out the line marked ```heatFluxSpaceBasis[funcI][faceI] = Foam::sqrt(1 + (shapeParameter * radius) * (shapeParameter * radius));``` and uncommand the line marked with```heatFluxSpaceBasis[funcI][faceI] = Foam::exp(-1.0 * (shapeParameter * shapeParameter) * (radius * radius));```to switch the configuration to Gaussian RBF mode. 
 This change toggles the reconstruction kernel used by the solver from multiquadric to Gaussian. 
 
-**Recompile ITHACA-FV**
-```
-cd /data/paper_repository/ITHACA-FV
-source /usr/lib/openfoam/openfoam2506/etc/bashrc
-source etc/bashrc
-./Allwmake -m -j 4
-```
-**Run the solver as done in the multiquadric case:**
-```
-wclean
-wmake
-blockMesh
-./06enKFwDF_3dIHTP
-```
+**Recompile ITHACA-FV and run the solver as done in the Multiquadric case**
 
 ### 8. Generated Output Files and Folders After Simulation
 **Folders:**
