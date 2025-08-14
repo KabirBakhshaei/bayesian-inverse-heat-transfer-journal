@@ -206,28 +206,30 @@ blockMesh                                              # Mesh generation
 ```
 ### Running the Gaussian RBF version:
 To use the **Gaussian RBF** instead of the multiquadric version:
-**Navigate to the Gaussian RBF directory:**
+
+Navigate to the Gaussian RBF directory:
 ```
 cd /data/paper_repository/Data_Assimilation_Gaussian_RBF/Files/
 ```
-Edit the `sequentialIHTP.C file` located in this directory `/data/paper_repository/ITHACA-FV/src/ITHACA_FOMPROBLEMS/sequentialIHTP/sequentialIHTP.C`
-
-Go to the source and back it up
+Edit the `sequentialIHTP.C file` located in this directory `/data/paper_repository/ITHACA-FV/src/ITHACA_FOMPROBLEMS/sequentialIHTP/sequentialIHTP.C`. Go to the source and back it up
 ```
 cd /data/paper_repository/ITHACA-FV/src/ITHACA_FOMPROBLEMS/sequentialIHTP; cp sequentialIHTP.C sequentialIHTP.C.mq.bak
 ```
 Toggle to Gaussian RBF
+
 Comment the multiquadric line (the `sqrt(...)` one) and uncomment the Gaussian line (`exp(...)`):
 inside the file, commant out the line marked ```heatFluxSpaceBasis[funcI][faceI] = Foam::sqrt(1 + (shapeParameter * radius) * (shapeParameter * radius));``` and uncommand the line marked with```heatFluxSpaceBasis[funcI][faceI] = Foam::exp(-1.0 * (shapeParameter * shapeParameter) * (radius * radius));```to switch the configuration to Gaussian RBF mode. 
+
 This change toggles the reconstruction kernel used by the solver from multiquadric to Gaussian. 
 ```
 sed -i -E '/heatFluxSpaceBasis\[.*\].*=.*Foam::sqrt\(/ s@^([[:space:]]*)@&// @' sequentialIHTP.C; sed -i -E '/heatFluxSpaceBasis\[.*\].*=.*Foam::exp\(/ s@^([[:space:]]*)//[[:space:]]*@\1@' sequentialIHTP.C
 ```
-(Verification – optional)
+Verification, optional
 ```
 grep -nE 'heatFluxSpaceBasis.*(Foam::sqrt|Foam::exp)' sequentialIHTP.C
 ```
 You should see the `sqrt` line commented and the `exp` line active.
+
 Rebuild the ITHACA library that uses this file
 ```
 cd /data/paper_repository/ITHACA-FV/src/ITHACA_FOMPROBLEMS; wclean libso; wmake libso -j4
