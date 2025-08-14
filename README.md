@@ -82,7 +82,7 @@ docker run -it --name ithacafv -v "$path_files":/data/paper_repository \ithacafv
 ```
 Windows PowerShell version
 
-**Note**: Some Windows setups may not support ```bash``` inside the image. If ```bash``` fails, use ```/bin/sh``` as shown below.
+Note: Some Windows setups may not support ```bash``` inside the image. If ```bash``` fails, use ```/bin/sh``` as shown below.
 ```
 docker run -it --name ithacafv -v ${path_files}:/data/paper_repository --entrypoint /bin/sh ithacafv/ithacafv
 ```
