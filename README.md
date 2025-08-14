@@ -211,6 +211,7 @@ To use the **Gaussian RBF** instead of the multiquadric version:
 cd /data/paper_repository/Data_Assimilation_Gaussian_RBF/Files/
 ```
 Edit the `sequentialIHTP.C file` located in this directory `/data/paper_repository/ITHACA-FV/src/ITHACA_FOMPROBLEMS/sequentialIHTP/sequentialIHTP.C`
+
 Go to the source and back it up
 ```
 cd /data/paper_repository/ITHACA-FV/src/ITHACA_FOMPROBLEMS/sequentialIHTP; cp sequentialIHTP.C sequentialIHTP.C.mq.bak
