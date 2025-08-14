@@ -179,6 +179,7 @@ If you are in /bin/sh:
 ```         
 . /usr/lib/openfoam/openfoam2506/etc/bashrc            # Load OpenFOAM environment
 . /data/paper_repository/ITHACA-FV/etc/bashrc          # Load ITHACA-FV environment
+
 # Set required env vars
 export LIB_SRC="$WM_PROJECT_DIR/src"
 export ITHACA_DIR=/data/paper_repository/ITHACA-FV
@@ -187,6 +188,7 @@ export LIB_ITHACA_LIB="$FOAM_USER_LIBBIN"   # ITHACA libs are here on v2506
 export MUQ_LIBRARIES=/root/miniconda3
 export MUQ_EXT_LIBRARIES=/root/miniconda3
 export LD_LIBRARY_PATH="$LIB_ITHACA_LIB:$MUQ_LIBRARIES/lib:$LD_LIBRARY_PATH"
+
 # Quick pre-flight checks (optional but helpful)
 echo WM_PROJECT_DIR=$WM_PROJECT_DIR; echo LIB_SRC=$LIB_SRC; echo LIB_ITHACA_SRC=$LIB_ITHACA_SRC; echo LIB_ITHACA_LIB=$LIB_ITHACA_LIB
 for d in "$LIB_SRC/finiteVolume/lnInclude" "$LIB_ITHACA_SRC/ITHACA_MUQ" "$MUQ_LIBRARIES/include"; do [ -d "$d" ] && echo OK:$d || echo MISSING:$d; done
