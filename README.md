@@ -210,14 +210,41 @@ To use the **Gaussian RBF** instead of the multiquadric version:
 ```
 cd /data/paper_repository/Data_Assimilation_Gaussian_RBF/Files/
 ```
-**Edit the file**
+Edit the `sequentialIHTP.C file` located in this directory `/data/paper_repository/ITHACA-FV/src/ITHACA_FOMPROBLEMS/sequentialIHTP/sequentialIHTP.C`
+Go to the source and back it up
 ```
-/data/paper_repository/ITHACA-FV/src/ITHACA_FOMPROBLEMS/sequentialIHTP/sequentialIHTP.C
+cd /data/paper_repository/ITHACA-FV/src/ITHACA_FOMPROBLEMS/sequentialIHTP; cp sequentialIHTP.C sequentialIHTP.C.mq.bak
 ```
+Toggle to Gaussian RBF
+Comment the multiquadric line (the `sqrt(...)` one) and uncomment the Gaussian line (`exp(...)`):
 inside the file, commant out the line marked ```heatFluxSpaceBasis[funcI][faceI] = Foam::sqrt(1 + (shapeParameter * radius) * (shapeParameter * radius));``` and uncommand the line marked with```heatFluxSpaceBasis[funcI][faceI] = Foam::exp(-1.0 * (shapeParameter * shapeParameter) * (radius * radius));```to switch the configuration to Gaussian RBF mode. 
 This change toggles the reconstruction kernel used by the solver from multiquadric to Gaussian. 
-
-**Recompile ITHACA-FV and run the solver as done in the Multiquadric case**
+```
+sed -i -E '/heatFluxSpaceBasis\[.*\].*=.*Foam::sqrt\(/ s@^([[:space:]]*)@&// @' sequentialIHTP.C; sed -i -E '/heatFluxSpaceBasis\[.*\].*=.*Foam::exp\(/ s@^([[:space:]]*)//[[:space:]]*@\1@' sequentialIHTP.C
+```
+(Verification – optional)
+```
+grep -nE 'heatFluxSpaceBasis.*(Foam::sqrt|Foam::exp)' sequentialIHTP.C
+```
+You should see the `sqrt` line commented and the `exp` line active.
+Rebuild the ITHACA library that uses this file
+```
+cd /data/paper_repository/ITHACA-FV/src/ITHACA_FOMPROBLEMS; wclean libso; wmake libso -j4
+```
+If you see a link error, make sure your env is loaded and paths are set (same as before):
+```
+. /usr/lib/openfoam/openfoam2506/etc/bashrc; . /data/paper_repository/ITHACA-FV/etc/bashrc; export LIB_ITHACA_LIB="$FOAM_USER_LIBBIN"; export LD_LIBRARY_PATH="$LIB_ITHACA_LIB:/root/miniconda3/lib:$LD_LIBRARY_PATH"
+```
+Then re-run the `wmake libso`.
+Rebuild the solver
+```
+cd /data/paper_repository/Data_Assimilation_Gaussian_RBF/Files; wclean; wmake -j4
+```
+Run the Gaussian case
+```
+blockMesh
+06enKFwDF_3dIHTP
+```
 
 ### 8. Generated Output Files and Folders After Simulation
 **Folders:**
