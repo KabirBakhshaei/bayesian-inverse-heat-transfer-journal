@@ -52,17 +52,16 @@ git clone https://github.com/KabirBakhshaei/bayesian-inverse-heat-transfer-journ
 cd bayesian-inverse-heat-transfer-journal
 ```
 ### 1B. Save the absolute path of this folder into a shell variable (on the host)
-If you are on Linux, WSL, or Git Bash:
-```bash
-path_files=$(pwd)
-echo "$path_files"
-```
 If you are on Windows PowerShell:
 ```bash
 $path_files = (Get-Location).Path
 Write-Output $path_files
 ```
-
+If you are on Linux, WSL, or Git Bash:
+```bash
+path_files=$(pwd)
+echo "$path_files"
+```
 ## If You're Using Docker
 ### 2. Pull (download) the pre-built Docker image
 (Optional) Remove any old container and image with the same name
@@ -76,15 +75,15 @@ The following code was copied from this [link](https://hub.docker.com/r/ithacafv
 docker pull ithacafv/ithacafv
 ```
 ### 3. Start a Docker container and mount your repo folder
-Linux / WSL / Git Bash version
-```
-docker run -it --name ithacafv -v "$path_files":/data/paper_repository \ithacafv/ithacafv bash
-```
 Windows PowerShell version
 
 Note: Some Windows setups may not support ```bash``` inside the image. If ```bash``` fails, use ```/bin/sh``` as shown below.
 ```
 docker run -it --name ithacafv -v ${path_files}:/data/paper_repository --entrypoint /bin/sh ithacafv/ithacafv
+```
+Linux / WSL / Git Bash version
+```
+docker run -it --name ithacafv -v "$path_files":/data/paper_repository \ithacafv/ithacafv bash
 ```
 <!--
 **Note**: Inside Docker, your repo will appear at ```/data/paper_repository``` regardless of the name it has on your host.
@@ -142,17 +141,17 @@ This folder contains modified '.C' and '.H' source files that must replace the c
     ```
     
 ### 5B.Navigate and Compile ITHACA-FV with MUQ support
-If you are in bash:
-```
-cd ITHACA-FV
-source /usr/lib/openfoam/openfoam2506/etc/bashrc       # Load OpenFOAM environment 
-source /data/paper_repository/ITHACA-FV/etc/bashrc     # Load ITHACA-FV environment
-```
 If you are in /bin/sh:
 ```
 cd ITHACA-FV        
 . /usr/lib/openfoam/openfoam2506/etc/bashrc       # Load OpenFOAM environment   
 . /data/paper_repository/ITHACA-FV/etc/bashrc     # Load ITHACA-FV environment
+```
+If you are in bash:
+```
+cd ITHACA-FV
+source /usr/lib/openfoam/openfoam2506/etc/bashrc       # Load OpenFOAM environment 
+source /data/paper_repository/ITHACA-FV/etc/bashrc     # Load ITHACA-FV environment
 ```
 then
 ```
@@ -169,12 +168,6 @@ cd /data/paper_repository
 cd /data/paper_repository/Data_Assimilation_Multiquadric_RBF/Files/
 ```
 Depending on whether your container shell is ```bash``` or ```/bin/sh``, load the required environments:
-If you are in bash:
-```
-source /usr/lib/openfoam/openfoam2506/etc/bashrc       # Load OpenFOAM environment using linux
-source /data/paper_repository/ITHACA-FV/etc/bashrc     # Load ITHACA-FV environment
-
-```
 If you are in /bin/sh:
 ```         
 . /usr/lib/openfoam/openfoam2506/etc/bashrc            # Load OpenFOAM environment
@@ -195,6 +188,14 @@ for d in "$LIB_SRC/finiteVolume/lnInclude" "$LIB_ITHACA_SRC/ITHACA_MUQ" "$MUQ_LI
 ls -1 "$FOAM_USER_LIBBIN"/libITHACA_*.so
 cd /data/paper_repository/Data_Assimilation_Multiquadric_RBF/Files/
 ```
+
+If you are in bash:
+```
+source /usr/lib/openfoam/openfoam2506/etc/bashrc       # Load OpenFOAM environment using linux
+source /data/paper_repository/ITHACA-FV/etc/bashrc     # Load ITHACA-FV environment
+# We reproduce the results on Windows PowerShell, you may need to adapt the above to Linux / WSL / Git Bash version
+```
+
 Then compile and run the simulation:
 ```
 # module load muq                                      # Load MUQ module, if it not already pre-installed and linked inside the Docker/Singularity image
