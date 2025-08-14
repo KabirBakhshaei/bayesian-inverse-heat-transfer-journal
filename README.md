@@ -149,7 +149,8 @@ source /usr/lib/openfoam/openfoam2506/etc/bashrc       # Load OpenFOAM environme
 source /data/paper_repository/ITHACA-FV/etc/bashrc     # Load ITHACA-FV environment
 ```
 If you are in /bin/sh:
-```         
+```
+cd ITHACA-FV        
 . /usr/lib/openfoam/openfoam2506/etc/bashrc       # Load OpenFOAM environment   
 . /data/paper_repository/ITHACA-FV/etc/bashrc     # Load ITHACA-FV environment
 ```
