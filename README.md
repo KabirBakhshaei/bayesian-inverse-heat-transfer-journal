@@ -421,9 +421,12 @@ The `requirements.txt` file specifies:
 
 This repository is archived and citable via Zenodo.  
 Click the badge below to access the DOI and download the versioned release:
-In Progress..............
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.XXXXXXX.svg)](https://doi.org/10.5281/zenodo.XXXXXXX)
 
 
-
+## How to cite
+If you use this repository, please cite the archived release:
+Bakhshaei, K., et al. (2025).
+*Optimized Bayesian Framework for Inverse Heat Transfer Problems Using ROM* (v1.0.0).
+Zenodo. https://doi.org/10.5281/zenodo.YYYYYYYY
