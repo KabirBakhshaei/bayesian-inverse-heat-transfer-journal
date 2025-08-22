@@ -25,12 +25,13 @@ This repository provides all the necessary code and data to reproduce the result
 
 | Location | Example Path | Notes |
 |----------|--------------|-------|
-| **Host (before mounting)** | `/u/k/kbakhsha/ITHACA-FV-KF/tutorials/UQ/Docker/bayesian-inverse-heat-transfer-journal` | Your cloned repo folder on your workstation |
+| **Host (before mounting)** | `.../Docker/bayesian-inverse-heat-transfer-journal` | Your cloned repo folder on your workstation |
 | **Inside Container (after mounting)** | `/data/paper_repository` | Mount point inside Docker/Singularity — always use this path in container commands |
 
 **Important:** The name of the folder **inside the container** will always be `/data/paper_repository`, regardless of the name it has on your host.  
+<!--
 That’s why in container steps, we `cd /data/paper_repository` instead of using the original folder name.
-
+-->
 ---
 
 ## Project Setup Instructions (Docker or Singularity)
