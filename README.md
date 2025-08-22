@@ -282,6 +282,18 @@ xyz.npy
 
 Once data is generated, postprocessing should be done outside Docker/Singularity using Python, and MATLAB.
 
+### 9. Reproducibility Notes
+
+We tested the container on two different systems and obtained consistent results within a small margin of variation:
+The table below compares the mean relative error values reported in the paper with those reproduced on two different systems using Docker.  
+| Method        | Paper Error (mean relative) | System 1 (Docker) | System 2 (Docker) |
+|---------------|-----------------------------|-------------------|-------------------|
+| Gaussian RBF  | 7.59                        | 7.61              | 7.88              |
+| Multiquadric  | 6.31                        | 6.32              | 6.59              |
+
+Small numerical differences are expected due to variations in BLAS/LAPACK libraries,
+CPU architectures, or floating-point rounding. The qualitative trends remain the same.
+---
 ## Postprocessing Guide
 
 ### Inside `Data_Assimilation_Multiquadric_RBF/Files/`
