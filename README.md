@@ -432,4 +432,3 @@ If you use this repository, please cite the archived release as:
 Kabir Bakhshaei, Umberto Emil Morelli, Giovanni Stabile, Gianluigi Rozza. (2025).  
 *Optimized Bayesian Framework for Inverse Heat Transfer Problems Using Reduced Order Method* (Version 1.0.0).  
 Zenodo. https://doi.org/10.5281/zenodo.16925045
- DOI: 10.5281/zenodo.16925045
