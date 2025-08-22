@@ -1,6 +1,6 @@
 # Bayesian Inverse Heat Transfer Paper (Data Assimilation Framework)
 
-This repository provides all the necessary code and data to reproduce the results presented in our paper entitled **Optimized Bayesian Framework for Inverse Heat Transfer Problems Using Reduced Order Method** [arXiv](https://arxiv.org/abs/2402.19381).. It includes Gaussian and Multiquadric RBF-based reconstructions, visualization scripts, and reproducible containerized environments using **Docker** or **Singularity**.
+This repository provides all the necessary code and data to reproduce the results presented in our paper entitled **Optimized Bayesian Framework for Inverse Heat Transfer Problems Using Reduced Order Method** [arXiv](https://arxiv.org/abs/2402.19381). It includes Gaussian and Multiquadric RBF-based reconstructions, visualization scripts, and reproducible containerized environments using **Docker** or **Singularity**.
 
 ---
 ## Repository Structure
@@ -40,9 +40,8 @@ This project uses a **pre-configured container** that includes:
 
 - `OpenFOAM` for CFD simulations  
 - `MUQ` for uncertainty quantification  
-- `PyTorch`  
-→ All are already installed and configured in the container.
-
+-  ITHACA-FV
+-  All are already installed and configured in the container.
 ---
 
 ##  Step-by-Step Instructions
@@ -291,8 +290,9 @@ The table below compares the mean relative error values reported in the paper wi
 | Gaussian RBF  | 7.59                        | 7.61              | 7.88              |
 | Multiquadric  | 6.31                        | 6.32              | 6.59              |
 
-Small numerical differences are expected due to variations in BLAS/LAPACK libraries,
-CPU architectures, or floating-point rounding. The qualitative trends remain the same.
+**Notes:**
+- Small variations between systems are expected due to nondeterministic operations in OpenFOAM/MUQ, CPU architecture diffrences, floating-point rounding, and different BLAS/LAPACK libraries used by Docker runtimes.  
+- Results are consistent and validate the reproducibility of the framework.
 ---
 ## Postprocessing Guide
 
