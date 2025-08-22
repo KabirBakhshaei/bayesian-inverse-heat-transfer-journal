@@ -421,7 +421,7 @@ The `requirements.txt` file specifies:
 
 To ensure long-term accessibility and reproducibility, this repository has been archived on Zenodo.  
 The archived version corresponding to the results presented in the manuscript can be accessed here:
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.XXXXXXX.svg)](https://doi.org/10.5281/zenodo.XXXXXXX)
+[![DOI](https://zenodo.org/badge/1034378347.svg)](https://doi.org/10.5281/zenodo.16925044)
 
 ---
 
@@ -431,4 +431,5 @@ If you use this repository, please cite the archived release as:
 
 Kabir Bakhshaei, Umberto Emil Morelli, Giovanni Stabile, Gianluigi Rozza. (2025).  
 *Optimized Bayesian Framework for Inverse Heat Transfer Problems Using Reduced Order Method* (Version 1.0.0).  
-Zenodo. https://doi.org/10.5281/zenodo.YYYYYYYY
+Zenodo. https://doi.org/10.5281/zenodo.16925045
+ DOI: 10.5281/zenodo.16925045
