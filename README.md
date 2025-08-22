@@ -419,14 +419,16 @@ The `requirements.txt` file specifies:
 
 ## Zenodo Archive
 
-This repository is archived and citable via Zenodo.  
-Click the badge below to access the DOI and download the versioned release:
-
+To ensure long-term accessibility and reproducibility, this repository has been archived on Zenodo.  
+The archived version corresponding to the results presented in the manuscript can be accessed here:
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.XXXXXXX.svg)](https://doi.org/10.5281/zenodo.XXXXXXX)
 
+---
 
-## How to cite
-If you use this repository, please cite the archived release:
-Bakhshaei, K., et al. (2025).
-*Optimized Bayesian Framework for Inverse Heat Transfer Problems Using ROM* (v1.0.0).
+## How to Cite
+
+If you use this repository, please cite the archived release as:
+
+Kabir Bakhshaei, Umberto Emil Morelli, Giovanni Stabile, Gianluigi Rozza. (2025).  
+*Optimized Bayesian Framework for Inverse Heat Transfer Problems Using Reduced Order Method* (Version 1.0.0).  
 Zenodo. https://doi.org/10.5281/zenodo.YYYYYYYY
