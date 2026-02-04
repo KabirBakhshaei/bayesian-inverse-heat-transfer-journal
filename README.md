@@ -72,9 +72,9 @@ docker rmi -f ithacafv/ithacafv || true      # Remove the image
 
 **Reproducible image (pinned digest used for the paper)**
 
-```bash
+``` 
 ithacafv/ithacafv@sha256:2f0046edfe653710a8a560de81d4fa906d0400f0784451f39f5825e3ef61c51e
-
+``` 
 
 Using this digest ensures that the software environment is identical and prevents
 incompatibilities caused by future updates to the `latest` tag.
