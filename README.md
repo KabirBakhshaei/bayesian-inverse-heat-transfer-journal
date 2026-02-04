@@ -65,24 +65,43 @@ echo "$path_files"
 ## If You're Using Docker
 ### 2. Pull (download) the pre-built Docker image
 (Optional) Remove any old container and image with the same name
+```       
+docker rm -f ithacafv || true                # Remove the container   
+docker rmi -f ithacafv/ithacafv || true      # Remove the image
 ```
-docker rm -f ithacafv            # Remove the container
-docker rmi ithacafv/ithacafv     # Remove the image
-```
+
+**Reproducible image (pinned digest used for the paper)**
+
+```bash
+ithacafv/ithacafv@sha256:2f0046edfe653710a8a560de81d4fa906d0400f0784451f39f5825e3ef61c51e
+
+
+Using this digest ensures that the software environment is identical and prevents
+incompatibilities caused by future updates to the `latest` tag.
+
 The following code was copied from this [Official Docker Hub page](https://hub.docker.com/r/ithacafv/ithacafv).
 ```
-docker pull ithacafv/ithacafv
+# Optional (not used for paper results; may change over time)
+docker pull ithacafv/ithacafv:latest
+
+# Reproducible image (fixed SHA256 digest)
+docker pull ithacafv/ithacafv@sha256:2f0046edfe653710a8a560de81d4fa906d0400f0784451f39f5825e3ef61c51e
 ```
 ### 3. Start a Docker container and mount your repo folder
 Windows PowerShell version
 
 Note: Some Windows setups may not support ```bash``` inside the image. If ```bash``` fails, use ```/bin/sh``` as shown below.
 ```
-docker run -it --name ithacafv -v ${path_files}:/data/paper_repository --entrypoint /bin/sh ithacafv/ithacafv
+docker run -it --name ithacafv -v "${path_files}:/data/paper_repository" --entrypoint /bin/sh ithacafv/ithacafv@sha256:2f0046edfe653710a8a560de81d4fa906d0400f0784451f39f5825e3ef61c51e
+
+
 ```
 Linux / WSL / Git Bash version
 ```
-docker run -it --name ithacafv -v "$path_files":/data/paper_repository \ithacafv/ithacafv bash
+docker run -it --name ithacafv \
+  -v "$path_files":/data/paper_repository \
+  ithacafv/ithacafv@sha256:2f0046edfe653710a8a560de81d4fa906d0400f0784451f39f5825e3ef61c51e
+
 ```
 <!--
 **Note**: Inside Docker, your repo will appear at ```/data/paper_repository``` regardless of the name it has on your host.
