@@ -417,18 +417,23 @@ The `requirements.txt` file specifies:
 - Required libraries
 ---
 
-## Zenodo Archive
+## Zenodo Archive (Permanent Reference)
 
-To ensure long-term accessibility and reproducibility, this repository has been archived on Zenodo.  
-The archived version corresponding to the results presented in the manuscript can be accessed here:
-[![DOI](https://zenodo.org/badge/1034378347.svg)](https://doi.org/10.5281/zenodo.16925044)
+To ensure long-term accessibility and full reproducibility of the results presented in the manuscript, a **frozen and citable release** of this repository has been archived on Zenodo.
+
+The archived version corresponding exactly to the results reported in the paper is available at:
+
+[![DOI](https://zenodo.org/badge/1034378347.svg)](https://doi.org/10.5281/zenodo.16925045)
+
+This Zenodo record represents a **snapshot of the codebase** (including scripts, configuration files, and postprocessing tools) used for the final manuscript and should be used for citation and long-term reference, independent of future changes to the GitHub repository.
 
 ---
 
 ## How to Cite
 
-If you use this repository, please cite the archived release as:
+If you use this code or reproduce results from this work, please cite the Zenodo archived release:
 
 Kabir Bakhshaei, Umberto Emil Morelli, Giovanni Stabile, Gianluigi Rozza. (2025).  
 *Optimized Bayesian Framework for Inverse Heat Transfer Problems Using Reduced Order Method* (Version 1.0.0).  
 Zenodo. https://doi.org/10.5281/zenodo.16925045
+
