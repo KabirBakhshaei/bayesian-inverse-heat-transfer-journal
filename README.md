@@ -97,7 +97,6 @@ docker run -it --name ithacafv -v "${path_files}:/data/paper_repository" --entry
 Linux / WSL / Git Bash version
 ```
 docker run -it --name ithacafv -v "$path_files":/data/paper_repository ithacafv/ithacafv@sha256:2f0046edfe653710a8a560de81d4fa906d0400f0784451f39f5825e3ef61c51e
-
 ```
 <!--
 **Note**: Inside Docker, your repo will appear at ```/data/paper_repository``` regardless of the name it has on your host.
