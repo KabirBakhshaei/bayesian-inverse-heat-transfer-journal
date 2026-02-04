@@ -421,11 +421,14 @@ The `requirements.txt` file specifies:
 
 To ensure long-term accessibility and full reproducibility of the results presented in the manuscript, a **frozen and citable release** of this repository has been archived on Zenodo.
 
-The archived version corresponding exactly to the results reported in the paper is available at:
+The archived version corresponding **exactly** to the results reported in the paper is available at:
 
 [![DOI](https://zenodo.org/badge/1034378347.svg)](https://doi.org/10.5281/zenodo.16925045)
 
-This Zenodo record represents a **snapshot of the codebase** (including scripts, configuration files, and postprocessing tools) used for the final manuscript and should be used for citation and long-term reference, independent of future changes to the GitHub repository.
+This Zenodo record represents the **authoritative reference for reproducibility** and
+corresponds to a snapshot of the codebase (including scripts, configuration files, and
+postprocessing tools) used for the final manuscript. It should be used for citation and
+long-term reference, independent of future changes to the GitHub repository.
 
 ---
 
