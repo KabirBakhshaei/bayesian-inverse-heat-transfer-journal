@@ -164,17 +164,11 @@ This folder contains modified '.C' and '.H' source files that must replace the c
     ```
     
 ### 5B.Navigate and Compile ITHACA-FV with MUQ support
-If you are in /bin/sh:
+(Works in both `bash` and `/bin/sh`)
 ```
 cd ITHACA-FV        
 . /usr/lib/openfoam/openfoam2506/etc/bashrc       # Load OpenFOAM environment   
 . /data/paper_repository/ITHACA-FV/etc/bashrc     # Load ITHACA-FV environment
-```
-If you are in bash:
-```
-cd ITHACA-FV
-source /usr/lib/openfoam/openfoam2506/etc/bashrc       # Load OpenFOAM environment 
-source /data/paper_repository/ITHACA-FV/etc/bashrc     # Load ITHACA-FV environment
 ```
 then
 ```
