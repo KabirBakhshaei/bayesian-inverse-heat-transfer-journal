@@ -135,8 +135,15 @@ But it is better to clone and compile the own version (for development or persis
 It is fine to have two copies of ITHACA-FV: the precompiled(read only) which is `/usr/lib/ITHACA-FV` is part of the container’s filesystem, changes here will be lost when the container is removed or the editable clone which is `/data/ITHACA-FV` is bind-mounted to the host machine, changes here will persist between container runs.
 ```
 rm -rf /data/paper_repository/ITHACA-FV
-git clone --depth 1 https://github.com/ITHACA-FV/ITHACA-FV
+# git clone --depth 1 https://github.com/ITHACA-FV/ITHACA-FV
+git clone https://github.com/ITHACA-FV/ITHACA-FV
+cd ITHACA-FV
+git checkout cca84264bc5204f06f52440983443a210277332d
+
 ```
+**Note:** The ITHACA-FV commit is pinned to ensure reproducibility.  
+Using a different commit or the upstream `master` branch may lead to incompatible builds or different results.
+
 ### 5A. Modified_ITHACA_Files
 This folder contains modified '.C' and '.H' source files that must replace the corresponding originals in the 'ITHACA-FV' source tree in order to reproduce the results presented in the paper.
 
