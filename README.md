@@ -463,9 +463,10 @@ Postprocessing (figure generation and notebooks) is performed **outside** Docker
 A portable Conda environment specification is provided in `environment.yml` (pinned package versions).
 
 Create and activate it with:
-```bash
+```
 conda env create -f environment.yml
 conda activate postprocess-ihtp
+```
 
 ### Software versions used for postprocessing
 
