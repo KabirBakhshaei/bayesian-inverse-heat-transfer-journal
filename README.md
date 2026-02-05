@@ -18,7 +18,7 @@ This repository provides all the necessary code and data to reproduce the result
 ├── SupplementaryImages/
 │   ├── Files/
 │   └── Results/
-├── requirements.txt
+├── environment.yml
 └── README.md
 ```
 ## Path Mapping: Host vs. Container
@@ -455,14 +455,22 @@ Note: This section covers only figures generated from a single simulation run (F
     - `Figure14_combined.png`
 ---
 
-## requirements.txt
+## Postprocessing environment (Python/MATLAB)
 
-The `requirements.txt` file specifies:
+Postprocessing (figure generation and notebooks) is performed **outside** Docker/Singularity using Python and MATLAB.
 
-- Python version
-- MATLAB version
-- Required libraries
----
+### Python (recommended: Conda)
+A portable Conda environment specification is provided in `environment.yml` (pinned package versions).
+
+Create and activate it with:
+```bash
+conda env create -f environment.yml
+conda activate postprocess-ihtp
+
+### Software versions used for postprocessing
+
+- **Python:** 3.10.19
+- **MATLAB:** R2024b
 
 ## Zenodo Archive (Permanent Reference)
 
