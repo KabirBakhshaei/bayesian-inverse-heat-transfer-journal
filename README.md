@@ -70,7 +70,7 @@ docker rm -f ithacafv                # Remove the container
 docker rmi -f ithacafv/ithacafv      # Remove the image
 ```
 
-**Docker image version (pinned for reproducibility):**
+**Note: Docker image version (pinned for reproducibility):**
 
 ``` 
 ithacafv/ithacafv@sha256:2f0046edfe653710a8a560de81d4fa906d0400f0784451f39f5825e3ef61c51e
