@@ -137,9 +137,6 @@ cd ITHACA-FV
 # Pinned commit used for the paper
 git checkout cca84264bc5204f06f52440983443a210277332d
 
-# Ensure submodules match that commit
-git submodule update --init --recursive
-
 ```
 
 ### 5A. Modified_ITHACA_Files
