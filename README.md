@@ -181,8 +181,7 @@ cd /data/paper_repository
 ```
 cd /data/paper_repository/Data_Assimilation_Multiquadric_RBF/Files/
 ```
-Depending on whether your container shell is ```bash``` or ```/bin/sh``, load the required environments:
-If you are in /bin/sh:
+Load the required environments (Works in both `bash` and `/bin/sh`):
 ```         
 . /usr/lib/openfoam/openfoam2506/etc/bashrc            # Load OpenFOAM environment
 . /data/paper_repository/ITHACA-FV/etc/bashrc          # Load ITHACA-FV environment
@@ -201,13 +200,6 @@ echo WM_PROJECT_DIR=$WM_PROJECT_DIR; echo LIB_SRC=$LIB_SRC; echo LIB_ITHACA_SRC=
 for d in "$LIB_SRC/finiteVolume/lnInclude" "$LIB_ITHACA_SRC/ITHACA_MUQ" "$MUQ_LIBRARIES/include"; do [ -d "$d" ] && echo OK:$d || echo MISSING:$d; done
 ls -1 "$FOAM_USER_LIBBIN"/libITHACA_*.so
 cd /data/paper_repository/Data_Assimilation_Multiquadric_RBF/Files/
-```
-
-If you are in bash:
-```
-source /usr/lib/openfoam/openfoam2506/etc/bashrc       # Load OpenFOAM environment using linux
-source /data/paper_repository/ITHACA-FV/etc/bashrc     # Load ITHACA-FV environment
-# We reproduce the results on Windows PowerShell; you may need to adapt the above to Linux / WSL / Git Bash version
 ```
 
 Then compile and run the simulation:
