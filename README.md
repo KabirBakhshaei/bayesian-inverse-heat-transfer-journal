@@ -138,6 +138,9 @@ cd ITHACA-FV
 git fetch --all --tags
 git checkout "$(git rev-list -n 1 --before="2025-08-08 23:59" origin/HEAD)"
 
+# Sync and initialize submodules at the same historical snapshot
+git submodule sync --recursive
+git submodule update --init --recursive
 ```
 
 ### 5A. Modified_ITHACA_Files
