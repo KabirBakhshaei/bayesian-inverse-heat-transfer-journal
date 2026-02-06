@@ -181,7 +181,6 @@ cd ITHACA-FV
 ```
 then
 ```
-git submodule update --init                            # Fetch dependencies
 ./Allwmake -tauq -j 4                                  # Compiles everything including Tauq (for UQ)
 ```
 ### 6. Navigate back to the mounted repo
