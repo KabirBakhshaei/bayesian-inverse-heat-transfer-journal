@@ -66,8 +66,8 @@ echo "$path_files"
 ### 2. Pull (download) the pre-built Docker image
 (Optional) Remove any old container and image with the same name
 ```       
-docker rm -f ithacafv || true                # Remove the container   
-docker rmi -f ithacafv/ithacafv || true      # Remove the image
+docker rm -f ithacafv                # Remove the container   
+docker rmi -f ithacafv/ithacafv      # Remove the image
 ```
 
 **Docker image version (pinned for reproducibility):**
