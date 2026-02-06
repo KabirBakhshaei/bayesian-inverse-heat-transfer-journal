@@ -136,14 +136,18 @@ cd ITHACA-FV
 
 # Pinned ITHACA-FV commit (exact version used for the paper, dated 2025-08-08)
 git fetch --all --tags
-git checkout "$(git rev-list -n 1 --before="2025-08-08 23:59" origin/main)"
+
+# Resolve and checkout the exact historical commit (origin uses 'master')
+ITHACA_SHA=$(git rev-list -n 1 --before="2025-08-08 23:59" refs/remotes/origin/master)
+echo "Using ITHACA-FV commit: $ITHACA_SHA"
+git checkout "$ITHACA_SHA"
 
 # Sync and initialize submodules at the same historical snapshot
 git submodule sync --recursive
 git submodule update --init --recursive
 
 # Sanity check (optional but recommended)
-git rev-parse HEAD
+git show -s --date=short --format="%h %ad %s"
 git submodule status --recursive | head -n 10
 ```
 
