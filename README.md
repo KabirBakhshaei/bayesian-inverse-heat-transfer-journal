@@ -136,7 +136,7 @@ cd ITHACA-FV
 
 # Pinned ITHACA-FV commit (exact version used for the paper, dated 2025-08-08)
 git fetch --all --tags
-git checkout "$(git rev-list -n 1 --before="2025-08-08 23:59" origin/HEAD)"
+git checkout "$(git rev-list -n 1 --before="2025-08-08 23:59" origin/main)"
 
 # Sync and initialize submodules at the same historical snapshot
 git submodule sync --recursive
