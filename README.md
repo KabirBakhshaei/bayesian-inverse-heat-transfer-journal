@@ -134,8 +134,9 @@ rm -rf /data/paper_repository/ITHACA-FV
 git clone https://github.com/ITHACA-FV/ITHACA-FV
 cd ITHACA-FV
 
-# Pinned commit used for the paper
-git checkout cca84264bc5204f06f52440983443a210277332d
+# Pinned ITHACA-FV commit (exact version used for the paper, dated 2025-08-08)
+git fetch --all --tags
+git checkout "$(git rev-list -n 1 --before="2025-08-08 23:59" origin/HEAD)"
 
 ```
 
