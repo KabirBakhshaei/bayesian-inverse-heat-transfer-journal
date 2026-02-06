@@ -181,7 +181,7 @@ cd ITHACA-FV
 ```
 then
 ```
-./Allwmake -tauq -j 4                                  # Compiles everything including Tauq (for UQ)
+./Allwmake -tauq -j 4                             # Compiles everything including Tauq (for UQ)
 ```
 ### 6. Navigate back to the mounted repo
 ```
@@ -194,8 +194,8 @@ cd /data/paper_repository/Data_Assimilation_Multiquadric_RBF/Files/
 ```
 Load the required environments (Works in both `bash` and `/bin/sh`):
 ```         
-. /usr/lib/openfoam/openfoam2506/etc/bashrc            # Load OpenFOAM environment
-. /data/paper_repository/ITHACA-FV/etc/bashrc          # Load ITHACA-FV environment
+. /usr/lib/openfoam/openfoam2506/etc/bashrc          # Load OpenFOAM environment
+. /data/paper_repository/ITHACA-FV/etc/bashrc        # Load ITHACA-FV environment
 
 # Set required env vars
 export LIB_SRC="$WM_PROJECT_DIR/src"
