@@ -138,7 +138,7 @@ cd ITHACA-FV
 git fetch --all --tags
 
 # Resolve and checkout the exact historical commit (origin uses 'master')
-ITHACA_SHA=$(git rev-list -n 1 --before="2025-08-08 23:59" refs/remotes/origin/master)
+ITHACA_SHA=$(git rev-list -n 1 --before="2025-08-08 09:42:50" refs/remotes/origin/master)
 echo "Using ITHACA-FV commit: $ITHACA_SHA"
 git checkout "$ITHACA_SHA"
 
