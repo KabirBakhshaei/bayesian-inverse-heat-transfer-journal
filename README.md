@@ -155,6 +155,21 @@ git submodule status --recursive | head -n 10
 ### 5A. Modified_ITHACA_Files
 This folder contains modified '.C' and '.H' source files that must replace the corresponding originals in the 'ITHACA-FV' source tree in order to reproduce the results presented in the paper.
 
+
+**NOTE:**
+**The following paths exist starting from ITHACA-FV commit ff9211a4 (2025-08-09).**
+**Make sure you have checked out this commit before proceeding.**
+
+**Sanity check (will fail early if wrong ITHACA-FV version is used)**
+    ```
+    test -d /data/paper_repository/ITHACA-FV/src/ITHACA_MUQ/Fang2017filter_wDF || \
+      { echo "ERROR: Fang2017filter_wDF not found. Check ITHACA-FV commit."; exit 1; }
+    ```
+    ```
+    test -d /data/paper_repository/ITHACA-FV/src/ITHACA_FOMPROBLEMS/sequentialIHTP || \
+      { echo "ERROR: sequentialIHTP not found. Check ITHACA-FV commit."; exit 1; }
+    ```
+    
     ```
     # ITHACA_MUQ
     cp /data/paper_repository/Modified_ITHACA_Files/ensembleClass.C /data/paper_repository/ITHACA-FV/src/ITHACA_MUQ/ensembleClass.C
