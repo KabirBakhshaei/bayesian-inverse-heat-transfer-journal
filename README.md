@@ -134,11 +134,12 @@ rm -rf /data/paper_repository/ITHACA-FV
 git clone https://github.com/ITHACA-FV/ITHACA-FV
 cd ITHACA-FV
 
-# Pinned ITHACA-FV commit (exact version used for the paper, dated 2025-08-08)
+# Pinned ITHACA-FV commit (exact version required for the paper): ff9211a4 (2025-08-09)
 git fetch --all --tags
 
 # Resolve and checkout the exact historical commit (origin uses 'master')
-ITHACA_SHA=$(git rev-list -n 1 --before="2025-08-08 09:42:50" refs/remotes/origin/master)
+# ITHACA_SHA=$(git rev-list -n 1 --before="2025-08-08 09:42:50" refs/remotes/origin/master)
+ITHACA_SHA="ff9211a4"
 echo "Using ITHACA-FV commit: $ITHACA_SHA"
 git checkout "$ITHACA_SHA"
 
@@ -147,7 +148,7 @@ git submodule sync --recursive
 git submodule update --init --recursive
 
 # Sanity check (optional but recommended)
-git show -s --date=short --format="%h %ad %s"
+git show -s --date=iso --format="%H  %ad  %s"
 git submodule status --recursive | head -n 10
 ```
 
