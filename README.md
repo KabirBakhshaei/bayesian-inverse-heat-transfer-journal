@@ -161,6 +161,7 @@ This folder contains modified '.C' and '.H' source files that must replace the c
 **Make sure you have checked out this commit before proceeding.**
 
 **Sanity check (will fail early if wrong ITHACA-FV version is used)**
+
     ```
     test -d /data/paper_repository/ITHACA-FV/src/ITHACA_MUQ/Fang2017filter_wDF || \
       { echo "ERROR: Fang2017filter_wDF not found. Check ITHACA-FV commit."; exit 1; }
