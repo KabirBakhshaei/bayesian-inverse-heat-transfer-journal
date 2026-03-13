@@ -9,6 +9,8 @@ https://arxiv.org/abs/2402.19381
 
 It includes Gaussian and Multiquadric RBF-based reconstructions, visualization scripts, and reproducible containerized environments using **Docker** or **Singularity**.
 
+
+This repository provides all the necessary code and data to reproduce the results presented in our paper entitled **Optimized Bayesian Framework for Inverse Heat Transfer Problems Using Reduced Order Methods**, published in *Computational Science and Engineering* (2026) (https://doi.org/10.1007/s44207-026-00009-8). A preprint version is available at https://arxiv.org/abs/2402.19381. It includes Gaussian and Multiquadric RBF-based reconstructions, visualization scripts, and reproducible containerized environments using **Docker** or **Singularity**.
 ---
 ## Repository Structure
 ```
