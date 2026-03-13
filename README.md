@@ -501,6 +501,18 @@ corresponds to a snapshot of the codebase (including scripts, configuration file
 postprocessing tools) used for the final manuscript. It should be used for citation and
 long-term reference, independent of future changes to the GitHub repository.
 
+## Zenodo Archive (Permanent Reproducibility Reference)
+
+To ensure long-term accessibility and full reproducibility of the results presented in the published paper, a **frozen and citable release** of this repository has been archived on Zenodo.
+
+The archived version corresponding **exactly** to the results reported in the journal article is available at:
+
+[![DOI](https://zenodo.org/badge/1034378347.svg)](https://doi.org/10.5281/zenodo.16925045)
+
+This Zenodo record represents the **authoritative reference for computational reproducibility** and corresponds to a snapshot of the codebase (including scripts, configuration files, and postprocessing tools) used for the final manuscript.
+
+For scientific citation of the research contribution, please cite the published journal article (see below). The Zenodo archive may be additionally cited when referencing the software or reproducible implementation.
+
 ---
 
 ## How to Cite
