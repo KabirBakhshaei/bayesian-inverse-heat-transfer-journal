@@ -488,19 +488,6 @@ conda activate postprocess-ihtp
 - **Python:** 3.10.19
 - **MATLAB:** R2024b
 
-## Zenodo Archive (Permanent Reference)
-
-To ensure long-term accessibility and full reproducibility of the results presented in the manuscript, a **frozen and citable release** of this repository has been archived on Zenodo.
-
-The archived version corresponding **exactly** to the results reported in the paper is available at:
-
-[![DOI](https://zenodo.org/badge/1034378347.svg)](https://doi.org/10.5281/zenodo.16925045)
-
-This Zenodo record represents the **authoritative reference for reproducibility** and
-corresponds to a snapshot of the codebase (including scripts, configuration files, and
-postprocessing tools) used for the final manuscript. It should be used for citation and
-long-term reference, independent of future changes to the GitHub repository.
-
 ## Zenodo Archive (Permanent Reproducibility Reference)
 
 To ensure long-term accessibility and full reproducibility of the results presented in the published paper, a **frozen and citable release** of this repository has been archived on Zenodo.
@@ -517,9 +504,20 @@ For scientific citation of the research contribution, please cite the published 
 
 ## How to Cite
 
-If you use this code or reproduce results from this work, please cite the Zenodo archived release:
+If you use this code or reproduce results from this work, please cite the published journal article:
 
-Kabir Bakhshaei, Umberto Emil Morelli, Giovanni Stabile, Gianluigi Rozza. (2025).  
-*Optimized Bayesian Framework for Inverse Heat Transfer Problems Using Reduced Order Method* (Version 1.0.0).  
+**Journal Article**
+
+Bakhshaei, K., Morelli, U.E., Stabile, G., Rozza, G. (2026).  
+*Optimized Bayesian Framework for Inverse Heat Transfer Problems Using Reduced Order Methods.*  
+Computational Science and Engineering.  
+https://doi.org/10.1007/s44207-026-00009-8
+
+If you specifically use the archived reproducible code snapshot, you may additionally cite:
+
+**Software Archive (Zenodo)**
+
+Bakhshaei, K., Morelli, U.E., Stabile, G., Rozza, G. (2025).  
+*Optimized Bayesian Framework for Inverse Heat Transfer Problems Using Reduced Order Methods* (Version 1.0.0).  
 Zenodo. https://doi.org/10.5281/zenodo.16925045
 
